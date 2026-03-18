@@ -2,6 +2,7 @@ package com.baozi.baozi_project.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Cliente {
@@ -13,6 +14,9 @@ public class Cliente {
     private String nome;
 
     private LocalDate clienteDesde;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos;
 
     public Cliente() {}
 
